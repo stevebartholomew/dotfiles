@@ -14,6 +14,10 @@ function __init_nvm() {
     . "$NVM_DIR"/nvm.sh
     unset __node_commands
     unset -f __init_nvm
+
+    if [[ -v AFTER_NVM_INIT ]]; then
+      eval ${AFTER_NVM_INIT}
+    fi
 }
 
 for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
