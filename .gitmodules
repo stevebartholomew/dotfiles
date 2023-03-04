@@ -1,0 +1,12 @@
+[submodule ".vim/bundle/copilot.vim"]
+	path = .vim/bundle/copilot.vim
+	url = https://github.com/github/copilot.vim.git
+[submodule ".vim/bundle/fzf"]
+	path = .vim/bundle/fzf
+	url = https://github.com/junegunn/fzf
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".vim/bundle/vim-rails"]
+	path = .vim/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git

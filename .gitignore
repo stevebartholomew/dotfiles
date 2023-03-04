@@ -2,3 +2,6 @@
 !/.gitignore
 !/.zshrc
 !/.zsh/
+!/.vim/
+!/.vimrc/
+.DS_Store
