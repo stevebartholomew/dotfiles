@@ -86,16 +86,15 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-nnoremap <c-d> :NERDTree<cr>
+nnoremap <c-f> :NERDTree<cr>
 nnoremap <leader>n :NERDTreeFind<CR>
 let NERDTreeSortOrder=[]
 
 " tabs
-map <c-a> :tabnext<cr>
+map <c-a> :tabprevious<cr>
 map <c-e> :tabnew<cr>
-
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+map <c-w> :tabclose<cr>
+map <c-d> :tabnext<cr>
 
 " disable arrow keys for full hipster experience
 map <Left> :echo "no!"<cr>
