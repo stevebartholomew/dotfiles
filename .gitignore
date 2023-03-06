@@ -4,4 +4,5 @@
 !/.zsh/
 !/.vim/
 !/.vimrc/
+!/README.md
 .DS_Store
