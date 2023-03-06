@@ -13,7 +13,6 @@ set nofoldenable
 set background=dark
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-
 if has("gui_running")
   colorscheme twilight256
   hi Normal guibg=#101010
@@ -108,3 +107,6 @@ inoremap <esc>   <NOP>
 let $FZF_DEFAULT_COMMAND = 'fd --type f'
 nnoremap <leader>f :FZF<cr>
 
+try 
+  source ~/.vimrc.local
+endtry 

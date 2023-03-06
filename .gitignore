@@ -6,3 +6,6 @@
 !/.vimrc
 !/README.md
 .DS_Store
+
+# until I know what this is for...
+.vim/.netrwhist
