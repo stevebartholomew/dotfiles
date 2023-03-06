@@ -5,7 +5,7 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 syntax enable
-set guifont=Monaco:h14
+set guifont=Monaco:h16
 set noerrorbells visualbell t_vb=
 set antialias
 set nofoldenable
