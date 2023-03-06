@@ -1,0 +1,110 @@
+set t_Co=256
+set t_BE=
+call pathogen#infect()
+call pathogen#helptags()
+syntax on
+filetype plugin indent on
+syntax enable
+set guifont=Monaco:h14
+set noerrorbells visualbell t_vb=
+set antialias
+set nofoldenable
+
+set background=dark
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
+if has("gui_running")
+  colorscheme twilight256
+  hi Normal guibg=#101010
+  hi NonText guibg=#101010
+else
+  set background=dark
+  colorscheme twilight256
+endif
+
+set wildignore+=.git,*.log,*.jpg,*.gif,vendor/bundle/*,tmp/*,vendor,doc/*,log/*,*.pdf,*.bmp,*.png,*.tiff,*.zip,android/*,ios/*,*node_modules/*,*/bower_components/*
+let g:loaded_netrwPlugin = 1
+let g:go_disable_autoinstall = 1
+let g:go_fmt_autosave = 0
+let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set expandtab
+set number
+set ruler
+set showmatch
+set incsearch
+set hlsearch
+let mapleader=","
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+      return "\<tab>"
+    else
+      return "\<c-p>"
+    endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+
+"""""""""""""
+" Key Maps
+"""""""""""""
+
+" Testing
+" Run current file with rsp command
+map <Leader>re :call VimuxRunCommand("clear; ruby " . bufname("%"))<CR>
+map <Leader>rb :call VimuxRunCommand("clear; rsp " . bufname("%"))<CR>
+map <Leader>rsp :call VimuxRunCommand("clear; rsp")<CR>
+
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+
+map <Leader>r1 :call VimuxRunCommand("clear; spec " . bufname("%"))<CR>
+
+map <Leader>rt :call VimuxRunCommand("clear; be rake test TEST=" . bufname("%"))<CR>
+
+
+" Toggle autoindent for pasting - use to retain source indenting
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+" Clear the search buffer when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+nnoremap <leader><leader> <c-^>
+
+" Move around splits with <c-hjkl>
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+nnoremap <c-d> :NERDTree<cr>
+nnoremap <leader>n :NERDTreeFind<CR>
+let NERDTreeSortOrder=[]
+
+" tabs
+map <c-a> :tabnext<cr>
+map <c-e> :tabnew<cr>
+
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+
+" disable arrow keys for full hipster experience
+map <Left> :echo "no!"<cr>
+map <Right> :echo "no!"<cr>
+map <Up> :echo "no!"<cr>
+map <Down> :echo "no!"<cr>
+inoremap <esc>   <NOP>
+
+let $FZF_DEFAULT_COMMAND = 'fd --type f'
+nnoremap <leader>f :FZF<cr>
+
