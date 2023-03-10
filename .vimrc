@@ -108,4 +108,6 @@ nnoremap <leader>f :FZF<cr>
 
 try 
   source ~/.vimrc.local
+catch
+  " do nothing
 endtry 
