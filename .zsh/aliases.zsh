@@ -1,1 +1,2 @@
-alias cdapi='cd ~/dev/api'
+alias r='./bin/rails'
+alias rs='RAILS_ENV=test ./bin/rspec'

@@ -1,4 +1,3 @@
-source ~/.zsh/rvm.zsh
 source ~/.zsh/asdf.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/aliases.zsh
