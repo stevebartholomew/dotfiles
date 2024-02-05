@@ -2,7 +2,7 @@ source ~/.zsh/asdf.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/aliases.zsh
 
-export EDITOR='mvim -f'
+export EDITOR='vim -f'
 
 LOCAL_OVERRIDES=~/.zshrc.local
 
