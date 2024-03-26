@@ -4,6 +4,8 @@ source ~/.zsh/aliases.zsh
 
 export EDITOR='vim -f'
 
+bindkey -e
+
 LOCAL_OVERRIDES=~/.zshrc.local
 
 if [[ -f "$LOCAL_OVERRIDES" ]]; then

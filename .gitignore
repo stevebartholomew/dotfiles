@@ -5,7 +5,9 @@
 !/.vim/
 !/.vimrc
 !/README.md
+!/.tmux.conf
 .DS_Store
+*.swp
 
 # until I know what this is for...
 .vim/.netrwhist

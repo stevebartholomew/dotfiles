@@ -93,7 +93,7 @@ let NERDTreeSortOrder=[]
 " tabs
 map <c-a> :tabprevious<cr>
 map <c-e> :tabnew<cr>
-map <c-w> :tabclose<cr>
+map <c-q> :tabclose<cr>
 map <c-d> :tabnext<cr>
 
 " disable arrow keys for full hipster experience
