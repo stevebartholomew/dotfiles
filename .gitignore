@@ -6,8 +6,9 @@
 !/.vimrc
 !/README.md
 !/.tmux.conf
-.DS_Store
+.vim/swapfiles
 *.swp
+.DS_Store
 
 # until I know what this is for...
 .vim/.netrwhist
