@@ -6,6 +6,9 @@
 !/.vimrc
 !/README.md
 !/.tmux.conf
+!.config/
+.config/*
+!.config/nvim
 .vim/swapfiles
 *.swp
 .DS_Store
