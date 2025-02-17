@@ -118,6 +118,9 @@ matching = { disallow_symbol_nonprefix_matching = false }
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['ruby_lsp'].setup {
+local lspconfig = require('lspconfig')
+
+lspconfig.ruby_lsp.setup {
 	capabilities = capabilities
 }
+lspconfig.sorbet.setup {}

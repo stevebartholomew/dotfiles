@@ -1,5 +1,6 @@
 /*
 !/.gitignore
+!/.gitmodules
 !/.zshrc
 !/.zsh/
 !/.vim/
@@ -9,6 +10,7 @@
 !.config/
 .config/*
 !.config/nvim
+!.config/vim
 .vim/swapfiles
 *.swp
 .DS_Store

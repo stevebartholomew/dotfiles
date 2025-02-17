@@ -1,0 +1,24 @@
+[submodule ".config/vim/bundle/fzf"]
+	path = .config/vim/bundle/fzf
+	url = https://github.com/junegunn/fzf
+[submodule ".config/vim/bundle/nerdtree"]
+	path = .config/vim/bundle/nerdtree
+	url = https://github.com/preservim/nerdtree.git
+[submodule ".config/vim/bundle/vim-rails"]
+	path = .config/vim/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule ".config/vim/bundle/vim-slim"]
+	path = .config/vim/bundle/vim-slim
+	url = https://github.com/slim-template/vim-slim.git
+[submodule ".config/vim/bundle/vim-go"]
+	path = .config/vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule ".config/vim/bundle/fugitive"]
+	path = .config/vim/bundle/fugitive
+	url = https://tpope.io/vim/fugitive.git
+[submodule ".config/vim/bundle/ack.config/vim"]
+	path = .config/vim/bundle/ack.config/vim
+	url = https://github.com/mileszs/ack.config/vim.git
+[submodule ".config/vim/bundle/nvim-lspconfig"]
+	path = .config/vim/bundle/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
