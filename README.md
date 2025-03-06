@@ -1,5 +1,12 @@
+### Install submodules
+
+```
+git submodule update --init --recursive
+```
+
 ### Install dependencies
 ```
+brew install fzf fd
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
 ```
 

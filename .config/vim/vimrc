@@ -112,4 +112,4 @@ catch
   " do nothing
 endtry 
 
-set directory=$HOME/.vim/swapfiles//
+set directory=$HOME/.vim/swapfiles/
