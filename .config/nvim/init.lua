@@ -8,6 +8,12 @@ vim.opt.number = true -- Show line numbers
 
 vim.g.mapleader = "," -- Set the leader key
 
+vim.o.expandtab = true       -- Convert tabs to spaces
+vim.o.shiftwidth = 2         -- Number of spaces for each indentation level
+vim.o.tabstop = 2            -- Number of spaces a <Tab> counts for
+vim.o.softtabstop = 2        -- Number of spaces inserted/deleted with <Tab>/<BS>
+
+
 -- Plugin configuration (requires 'nvim-plug')
 local plug_path = vim.fn.stdpath('data') .. "/site/autoload/plug.vim"
 if vim.fn.empty(vim.fn.glob(plug_path)) > 0 then
@@ -31,6 +37,9 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+
+Plug 'tpope/vim-rails'
+
 call plug#end()
 ]])
 
@@ -65,6 +74,19 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.format()
   end,
 })
+
+-- Rails
+-- Toggle between source and test
+vim.keymap.set('n', '<leader>at', ':A<CR>', { desc = 'Alternate between model and test' })
+
+-- Toggle in a vertical split
+vim.keymap.set('n', '<leader>av', ':AV<CR>', { desc = 'Alternate in vertical split' })
+
+-- Open corresponding controller/view/model/test with fuzzy matching
+vim.keymap.set('n', '<leader>rc', ':Econtroller<CR>', { desc = 'Jump to controller' })
+vim.keymap.set('n', '<leader>rm', ':Emodel<CR>', { desc = 'Jump to model' })
+vim.keymap.set('n', '<leader>rv', ':Eview<CR>', { desc = 'Jump to view' })
+vim.keymap.set('n', '<leader>rt', ':E<CR>', { desc = 'Jump to related test or file' })
 
 -- nvim-cmp
 
@@ -119,8 +141,14 @@ matching = { disallow_symbol_nonprefix_matching = false }
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 local lspconfig = require('lspconfig')
-
-lspconfig.ruby_lsp.setup {
-	capabilities = capabilities
-}
-lspconfig.sorbet.setup {}
+lspconfig.ruby_lsp.setup({
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
+    addonSettings = {
+      ["Ruby LSP Rails"] = {
+        enablePendingMigrationsPrompt = false,
+      },
+    },
+  },
+})

@@ -8,6 +8,8 @@ git submodule update --init --recursive
 ```
 brew install fzf fd
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+
+gem install ruby-lsp
 ```
 
 ## Remap ~
