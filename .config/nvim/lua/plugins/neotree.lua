@@ -14,11 +14,3 @@ require("neo-tree").setup({
     },
   },
 })
-
-if vim.fn.argc() == 1 then
-  local arg = vim.fn.argv(0)
-  local stat = vim.loop.fs_stat(arg)
-  if stat and stat.type == "directory" then
-    vim.cmd("Neotree reveal")
-  end
-end

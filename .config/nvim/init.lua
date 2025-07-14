@@ -92,7 +92,3 @@ vim.keymap.set('n', '<leader>rc', ':Econtroller<CR>', { desc = 'Jump to controll
 vim.keymap.set('n', '<leader>rm', ':Emodel<CR>', { desc = 'Jump to model' })
 vim.keymap.set('n', '<leader>rv', ':Eview<CR>', { desc = 'Jump to view' })
 vim.keymap.set('n', '<leader>rt', ':E<CR>', { desc = 'Jump to related test or file' })
-
-if vim.fn.argc() == 0 and vim.bo.filetype ~= "neo-tree" then
-  vim.cmd("enew")  -- Open a blank buffer
-end
