@@ -13,7 +13,6 @@ vim.o.shiftwidth = 2         -- Number of spaces for each indentation level
 vim.o.tabstop = 2            -- Number of spaces a <Tab> counts for
 vim.o.softtabstop = 2        -- Number of spaces inserted/deleted with <Tab>/<BS>
 
-
 -- Plugin configuration (requires 'nvim-plug')
 local plug_path = vim.fn.stdpath('data') .. "/site/autoload/plug.vim"
 if vim.fn.empty(vim.fn.glob(plug_path)) > 0 then
@@ -22,6 +21,8 @@ if vim.fn.empty(vim.fn.glob(plug_path)) > 0 then
         "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     })
 end
+
+vim.api.nvim_set_option("clipboard", "unnamed")
 
 vim.cmd([[
 call plug#begin()
@@ -42,6 +43,10 @@ Plug 'tpope/vim-rails'
 
 call plug#end()
 ]])
+
+require('plugins.neotree')
+require('plugins.cmp')
+require('plugins.lsp')
 
 -- Key mappings for Telescope
 local builtin = require('telescope.builtin')
@@ -88,67 +93,6 @@ vim.keymap.set('n', '<leader>rm', ':Emodel<CR>', { desc = 'Jump to model' })
 vim.keymap.set('n', '<leader>rv', ':Eview<CR>', { desc = 'Jump to view' })
 vim.keymap.set('n', '<leader>rt', ':E<CR>', { desc = 'Jump to related test or file' })
 
--- nvim-cmp
-
--- Set up nvim-cmp.
-local cmp = require'cmp'
-
-cmp.setup({
-snippet = {
--- REQUIRED - you must specify a snippet engine
-expand = function(args)
-vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-end,
-},
-window = {
--- completion = cmp.config.window.bordered(),
--- documentation = cmp.config.window.bordered(),
-},
-mapping = cmp.mapping.preset.insert({
-['<C-b>'] = cmp.mapping.scroll_docs(-4),
-['<C-f>'] = cmp.mapping.scroll_docs(4),
-['<C-Space>'] = cmp.mapping.complete(),
-['<C-e>'] = cmp.mapping.abort(),
-['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-}),
-sources = cmp.config.sources({
-{ name = 'nvim_lsp' },
-}, {
-{ name = 'buffer' },
-})
-})
-
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-mapping = cmp.mapping.preset.cmdline(),
-sources = {
-{ name = 'buffer' }
-}
-})
-
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline(':', {
-mapping = cmp.mapping.preset.cmdline(),
-sources = cmp.config.sources({
-{ name = 'path' }
-}, {
-{ name = 'cmdline' }
-}),
-matching = { disallow_symbol_nonprefix_matching = false }
-})
-
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-local lspconfig = require('lspconfig')
-lspconfig.ruby_lsp.setup({
-  init_options = {
-    formatter = 'standard',
-    linters = { 'standard' },
-    addonSettings = {
-      ["Ruby LSP Rails"] = {
-        enablePendingMigrationsPrompt = false,
-      },
-    },
-  },
-})
+if vim.fn.argc() == 0 and vim.bo.filetype ~= "neo-tree" then
+  vim.cmd("enew")  -- Open a blank buffer
+end
