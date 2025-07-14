@@ -73,13 +73,6 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = "Go to implementation" })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = "Go to references" })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.rb",
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
-
 -- Rails
 -- Toggle between source and test
 vim.keymap.set('n', '<leader>at', ':A<CR>', { desc = 'Alternate between model and test' })
