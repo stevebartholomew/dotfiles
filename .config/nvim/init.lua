@@ -2,6 +2,7 @@ vim.opt.termguicolors = true -- Enable 24-bit RGB colors
 vim.opt.background = "dark" -- Set background mode
 vim.cmd("colorscheme twilight256")
 vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+vim.g.markdown_fenced_languages = { "html", "python", "ruby", "vim" }
 
 vim.opt.wrap = false
 vim.opt.number = true -- Show line numbers
